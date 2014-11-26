@@ -1,0 +1,61 @@
+<include file="Admin/Template/default/common/header.html"/>
+<div id="main" class="cl">
+    <div class="colbox">
+        <div class="col-header"><a href="/index.php/Admin" class="col-cls" title="关闭"></a><i class="ui i-loc2"></i>上传存储设置</div>
+        <div class="p-col">
+            <form action="<!--{:U('Config/save_upload')}-->" method="post">
+                <input type="hidden" name="id" value="<!--{$ec.id}-->">
+                <table class="form-table" width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="80">上传路径</td>
+                            <td><input type="text" name="up_url" value="<!--{$ec.up_url}-->" class="c300w"><span class="fx">填写图片上传路径</span></td>
+                        </tr>
+                        <tr>
+                            <td>图片分流</td>
+                            <td><input type="text" name="shunt_url" value="<!--{$ec.shunt_url}-->" class="c300w"><span class="fx">降低服务器图片加载压力，加速网站打开速度</span></td>
+                        </tr>
+                        <tr>
+                            <td>大小限制</td>
+                            <td><input type="text" name="up_size" value="<!--{$ec.up_size}-->" class="c8w"><span class="fx">图片上传大小限制，以字节为单位，如1M填写（1024000）</span></td>
+                        </tr>
+                        <tr>
+                            <td>启用缩略图</td>
+                            <td>
+                                <input type="radio" name="thumb_on" value="1"  <if condition="$ec['thumb_on'] eq 1"> checked="true"</if>><span class=" mrm">开启</span>
+                                <input type="radio" name="thumb_on" value="0"  <if condition="$ec['thumb_on'] eq 0"> checked="true"</if>><span class="">关闭</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>缩略图路径</td>
+                            <td><input type="text" name="thumb_url" value="<!--{$ec.thumb_url}-->" class="c600w"></td>
+                        </tr>
+                        <tr>
+                            <td>缩略图大小</td><td><input type="text" name="thumb_size" value="<!--{$ec.thumb_size}-->" class="c80w"><span class="fx">格式为（160,80）</span></td>
+                        </tr>
+                        <tr><td>缩略图位置</td>
+                            <td class="label-block">
+                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_SCALE"  <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_SCALE'"> checked="true"</if>>等比例缩放类型</label>
+                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_FILLED"  <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_FILLED'"> checked="true"</if>>缩放后填充类型</label>
+                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_CENTER"  <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_CENTER'"> checked="true"</if>>居中裁剪类型</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="label-block">
+                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_NORTHWEST" <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_NORTHWEST'"> checked="true"</if>>左上角裁剪类型</label>
+                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_SOUTHEAST" <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_SOUTHEAST'"> checked="true"</if>>右下角裁剪类型</label>
+                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_FIXED" <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_FIXED'"> checked="true"</if>>固定尺寸缩放类型</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="提交" ></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<include file="Admin/Template/default/common/footer.html"/>

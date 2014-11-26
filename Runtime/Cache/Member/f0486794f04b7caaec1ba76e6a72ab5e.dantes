@@ -1,0 +1,114 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>个人中心 - <?php echo ($G["sitename"]); ?></title>
+	<meta name="keywords" content="<?php echo ($G["keywords"]); ?>" />
+    <meta name="description" content="<?php echo ($G["description"]); ?>"/>
+    <meta name="powered" content="powered by weitcms">
+    <meta name="contact" content="qq:763093576 mobile:17722515002">
+	<link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="/Static/common/css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="/Static/home/css/weithree.min.css" />
+<!--[if lt ie 9]> 
+<script src="/Static/common/js/html5.js"></script> 
+<![endif]--> 
+	<link rel="stylesheet" type="text/css" href="/Member/Static/css/member.min.css" />
+</head>
+<body>
+	<header class="header">
+	<div class="wp cl">
+		<h2 class="logo">
+			<a href="<?php echo ($G["siteurl"]); ?>"><img  alt="<?php echo ($sitename); ?>" src="/Static/home/images/logo.png" width="227" height="45"></a>
+		</h2>
+		<nav class="nav z">
+			<ul>
+				<li><a href="<?php echo ($G["siteurl"]); ?>"><i class="i-icon">A</i></a></li>
+				<?php if(is_array($channel)): $i = 0; $__LIST__ = $channel;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li <?php if($vo['url'] == ACTION_NAME): ?>class="active"<?php endif; ?>><a href="<?php echo ($G["siteurl"]); ?>/<?php echo ($vo["url"]); ?>.html"><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+			</ul>
+		</nav>
+		<div class="search">
+			<form action="search" method="get">
+				<input type="text" name="keyword" placeholder="搜一下吧" class="keyword"><input type="submit" class="search-btn" value="搜索">
+			</form>
+		</div>
+	</div>
+</header>
+	<div id="container-member" class="bf45 bm-member">
+	<div class="wp cl">
+		<div class="member-tab-header">
+			<div class="member-index-avtimg cl">
+				<a href="/member/re_avtimg"><img src="<?php echo ((isset($user["avtimg"]) && ($user["avtimg"] !== ""))?($user["avtimg"]):'/Static/common/images/user.png'); ?>" alt="<?php echo ($user["username"]); ?>" title="修改头像" width="50" height="50"></a>
+				<div class="member-user-info">
+					<span class="member-username">你好，<?php echo ($user["username"]); ?>！</span>
+					<span class="member-level">用户组：<?php echo ($user["username"]); ?></span>
+					<span class="member-score">微币：<?php echo ($user["score"]); ?></span>
+				</div>
+			</div>
+			<div class="tf"></div>
+			<ul class="nav-member">
+				<li class="y"><a href="/member/post" class="active"><i class="i-icon">S</i> 发布视频</a></li>
+				<li><a href="/member/infocenter" <?php if(ACTION_NAME == 'index'): ?>class="active"<?php endif; ?>>我的首页</a></li>
+				<li><a href="/member/myinfo/video" <?php if((ACTION_NAME == 'video') OR (ACTION_NAME == 'post')): ?>class="active"<?php endif; ?>>我的视频</a></li>
+				<!-- <li><a href="/member/my_thread" <?php if((ACTION_NAME == 'my_thread') OR (ACTION_NAME == 'post_thread')): ?>class="active"<?php endif; ?>>我的帖子</a></li> -->
+				<li><a href="/member/myinfo/concern" <?php if(ACTION_NAME == 'concern'): ?>class="active"<?php endif; ?>>我的关注</a></li>
+				<li><a href="/member/myinfo/reply" <?php if(ACTION_NAME == 'reply'): ?>class="active"<?php endif; ?>>我的回复</a></li>
+				<li><a href="/member/myinfo/config" <?php if(ACTION_NAME == 'config'): ?>class="active"<?php endif; ?>>个人设置</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<div id="container">
+	
+	</div>
+	<footer class="footer">
+	<div class="wp cl">
+		<div class="static hm xs2">
+			<a href="<?php echo ($G["siteurl"]); ?>/about.html" class="first">关于微剑三</a>
+			<a href="<?php echo ($G["siteurl"]); ?>/flow.html">免责申明</a>
+			<a href="<?php echo ($G["siteurl"]); ?>/adv.html">广告服务</a>
+			<a href="<?php echo ($G["siteurl"]); ?>/flink.html">友情链接</a>
+			<a href="<?php echo ($G["siteurl"]); ?>/sitemap.html">网站导航</a>
+			<a href="<?php echo ($G["siteurl"]); ?>/join.html">加入我们</a>
+		</div>
+		<div class="copy hm">	
+			<p>免责声明：本站所有内容均来自正规视频站点所提供的公开引用资源</p>
+			<p>&copy;COPYRIGHT 2014 <a href="<?php echo ($G["siteurl"]); ?>">weij3.com</a> ALL RIGHTS RESERVED.<a href="http://www.miibeian.gov.cn/"><?php echo ($G["icp"]); ?></a></p>
+		</div>
+	</div>
+</footer>
+<?php if($ukey != 0): ?><div class="dialog" id="login">
+	 <div class="dialog-header">登录之后更精彩<a href="javascript:void(0)" class="cls y" data-id="login"></a></div>
+	<div class="p-col">
+		<form id="data-login" method="post" action="/login">
+			<div class="form-box"><label>邮箱</label><input type="text" name="email" class="email text-box"></div>
+			<div class="form-box"><label>密码</label><input type="password" name="password" class="password text-box"></div>
+			<div class="form-box"><input type="submit" class="sub-btn" value="登录"><a href="<?php echo ($G["siteurl"]); ?>/register.html" class="register-btn mlm">还没有账号？注册</a></div>
+		</form>
+	</div>
+</div><?php endif; ?>
+<div class="floating-nav fixed">
+	<li class="backTop"><a href="javascript:void(0)"><i class="i-icon">a</i></a></li>
+	<li>
+		<?php if($ukey != 0): ?><a href="<?php echo ($G["siteurl"]); ?>/post"><i class="i-icon">S</i></a>
+		<?php else: ?>
+			<a href="javascript:void(0)" class="modal" data-modal="login"><i class="i-icon">S</i></a><?php endif; ?>
+	</li>
+	<li><a href="javascript:void(0)"><i class="i-icon">f</i></a></li>
+</div>
+<script type="text/javascript" src="/Static/common/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/Static/common/js/img.load.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+  	$(".video-list img").lazyload({
+  		placeholder:"/Static/common/images/images/lazy.jpg",
+  		effect:"fadeIn",
+  		threshold : 800
+  	});
+  });
+</script>
+<script type="text/javascript" src="/Static/home/js/weithree.min.js"></script>
+<script type="text/javascript" src="/Static/home/js/koala.min.1.5.js"></script>
+</body>
+</html>

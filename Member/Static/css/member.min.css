@@ -1,0 +1,20 @@
+/**
+ * 用户中心 信息头
+ * @type {[type]}
+ */
+#container-member { height: 119px;}
+.bm-member { border-bottom: 2px solid #f34890}
+.member-tab-header{padding-top:15px;}
+.member-tab-header ul{height:35px;line-height:35px}
+.member-tab-header li{float:left;font-size:14px;padding-right:7px}
+.member-tab-header li a{display:block; padding:0 10px;font-size:15px; height:35px;color:#555; border-radius: 3px 3px 0 0}
+.member-tab-header li a:hover,
+.member-tab-header li a.active{color:#fff; background-color: #f34890;}
+.member-index-avtimg{overflow:hidden;width:auto; height: auto;}
+.member-index-avtimg img{float:left;width:50px;height:50px;border-radius:50px;overflow:hidden;border:2px solid #eee}
+.member-user-info{padding-left:100px}
+.member-user-info p{line-height:20px}
+.member-user-info .member-username{margin-bottom:5px;line-height:30px;font-size:14px}
+.member-index-qiuck{padding-bottom:5px;padding-top:24px;height:35px;line-height:35px;font-size:14px}
+.member-index-qiuck a{display:block;padding:0 10px;margin-right:10px;float:left;border:1px solid #ebebeb;background:-webkit-linear-gradient(#fff,#f1f1f1);background:-o-linear-gradient(#fff,#f1f1f1);background:linear-gradient(#fff,#f1f1f1);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffffff,endColorstr=#F1F1F1);-ms-filter:"progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ffffff, endColorstr=#F1F1F1)";border-radius:3px}
+.member-index-qiuck a:hover{color:#f80}
