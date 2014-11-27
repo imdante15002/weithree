@@ -5,4 +5,4 @@
 使用网站：
 http://www.weij3.com
  http://weitcms.weij3.com
- http://wsh.weij3.cn
+ http://wsh.weij3.com
