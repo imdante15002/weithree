@@ -1,11 +1,8 @@
 <?php
-namespace Home\Controller;
+namespace Member\Controller;
 use Think\Controller;
-class UserController extends CommonController {
-    public function index(){
-    	$this->display();
-    }
-    public function login(){
+class publicController extends CommonController {
+     public function login(){
     	$email = I('email');
         $pwd = I('password','','sha1'); 
         $user=M('Member')->where(array('email'=>$email))->find();
@@ -21,7 +18,7 @@ class UserController extends CommonController {
         );
         M('member')->save($data);       
         session('uid' , $user['uid']);
-        $this->success('登录成功！欢迎回来！','/');
+        $this->success('登录成功！欢迎回来！');
     }
     public function register(){
         $this->display();

@@ -35,6 +35,21 @@
 				</div>
 				<div class="player-aside">
 					<h3 class="p-a-header">最新视频</h3>
+					<div class="col">
+						<ul class="video-video-new">
+							<volist name="newlist" id="vo">
+							<li>
+								<a href="/video/<!--{$vo.id}-->.html"><img alt="<!--{$vo.title}-->" src="/<!--{$vo.lipic}-->" title="<!--{$vo.title}-->" class="lipic" width="120" height="67"></a>
+								<h3><a href="/video/<!--{$vo.id}-->.html"><!--{$vo.title}--></a></h3>
+								<p>
+									<span><i class="i-icon">C</i><!--{$vo.name}--></span>
+									<span><i class="i-icon">z</i><!--{$vo.views}--></span>
+									<span><i class="i-icon">Q</i><!--{$vo.dateline|date="m-d",###}--></span>
+								</p>
+							</li>
+							</volist>
+						</ul>
+					</div>
 				</div>
 			</section>
 		</div>

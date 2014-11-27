@@ -1,24 +1,18 @@
-<div id="container-member" class="bf45 bm-member">
-	<div class="wp cl">
-		<div class="member-tab-header">
-			<div class="member-index-avtimg cl">
-				<a href="/member/re_avtimg"><img src="<!--{$user.avtimg|default='/Static/common/images/user.png'}-->" alt="<!--{$user.username}-->" title="修改头像" width="50" height="50"></a>
-				<div class="member-user-info">
-					<span class="member-username">你好，<!--{$user.username}-->！</span>
-					<span class="member-level">用户组：<!--{$user.username}--></span>
-					<span class="member-score">微币：<!--{$user.score}--></span>
-				</div>
-			</div>
-			<div class="tf"></div>
-			<ul class="nav-member">
-				<li class="y"><a href="/member/post" class="active"><i class="i-icon">S</i> 发布视频</a></li>
-				<li><a href="/member/infocenter" <if condition="ACTION_NAME eq 'index'">class="active"</if>>我的首页</a></li>
-				<li><a href="/member/myinfo/video" <if condition="(ACTION_NAME eq 'video') OR (ACTION_NAME eq 'post')"> class="active"</if>>我的视频</a></li>
-				<!-- <li><a href="/member/my_thread" <if condition="(ACTION_NAME eq 'my_thread') OR (ACTION_NAME eq 'post_thread')"> class="active"</if>>我的帖子</a></li> -->
-				<li><a href="/member/myinfo/concern" <if condition="ACTION_NAME eq 'concern'">class="active"</if>>我的关注</a></li>
-				<li><a href="/member/myinfo/reply" <if condition="ACTION_NAME eq 'reply'">class="active"</if>>我的回复</a></li>
-				<li><a href="/member/myinfo/config" <if condition="ACTION_NAME eq 'config'">class="active"</if>>个人设置</a></li>
-			</ul>
+<div class="aside-member z">
+	<div class="member-index-avtimg cl">
+		<a href="/member/re_avtimg"><img src="<!--{$user.avtimg|default='/Static/common/images/user.png'}-->" alt="<!--{$user.username}-->" title="修改头像" width="160" height="160"></a>
+		<div class="member-user-info">
+			<p class="hm xs6 weight"><!--{$user.username}--></p>
+			<p>用户组：<!--{$user.username}--></p>
+			<p>微币：<!--{$user.score}--></p>
 		</div>
 	</div>
+	<ul class="menu-member ov">
+		<li><a href="/member/post" <if condition="ACTION_NAME eq 'post'">class="active"</if>><i class="i-icon">S</i> 发布视频</a></li>
+		<li><a href="/member/infocenter" <if condition="ACTION_NAME eq 'index'">class="active"</if>><i class="i-icon">A</i> 我的首页</a></li>
+		<li><a href="/member/myinfo/video" <if condition="(ACTION_NAME eq 'video') OR (ACTION_NAME eq 'post')"> class="active"</if>><i class="i-icon">g</i> 我的视频</a></li>
+		<li><a href="/member/myinfo/concern" <if condition="ACTION_NAME eq 'concern'">class="active"</if>><i class="i-icon">q</i> 我的关注</a></li>
+		<li><a href="/member/myinfo/reply" <if condition="ACTION_NAME eq 'reply'">class="active"</if>><i class="i-icon">f</i> 我的回复</a></li>
+		<li><a href="/member/myinfo/config" <if condition="ACTION_NAME eq 'config'">class="active"</if>><i class="i-icon">e</i> 个人设置</a></li>
+	</ul>
 </div>

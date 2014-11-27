@@ -1,8 +1,8 @@
 <?php
 return array(
 	//'SHOW_PAGE_TRACE'       =>true, //trace开关
-  'TMPL_ACTION_ERROR'     =>  '/Home/template/defalut/common/dialog', // 默认错误跳转对应的模板文件
-  'TMPL_ACTION_SUCCESS'   =>  '/Home/template/defalut/common/dialog', // 默认成功跳转对应的模板文件/
+  'TMPL_ACTION_ERROR'     =>  'common/dialog', // 默认错误跳转对应的模板文件
+  'TMPL_ACTION_SUCCESS'   =>  'common/dialog', // 默认成功跳转对应的模板文件/
 	//----------------------缓存设置--------------------//
     'DATA_CACHE_COMPRESS'   =>  true,   // 数据缓存是否压缩缓存
     'DATA_CACHE_TIME'       =>  180, 

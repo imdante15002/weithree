@@ -228,9 +228,9 @@ class ContentController extends CommonController{
         $m=M('article');
         $status=$m->where(array('tid'=>array('in',$tid)))->setField('catid',$catid);
         if ($m) {
-             $this->success('移动成功');
+             $this->success('移动成功！');
         }else{
-            $this->error('移动失败！,请联系技术人员.');
+            $this->error('移动失败！');
         }
         
     }

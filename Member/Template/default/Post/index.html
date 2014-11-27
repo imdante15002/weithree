@@ -3,43 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><!--{$nav.name}-->视频 - <!--{$G.sitename}--></title>
+	<title>分享视频 - <!--{$G.sitename}--></title>
 	<meta name="keywords" content="<!--{$nav.keywords}-->" />
     <meta name="description" content="<!--{$nav.description}-->"/>
     <meta name="powered" content="powered by weitcms">
     <meta name="contact" content="qq:763093576 mobile:17722515002">
 	<include file="Home/Template/default/common/css.html"/>
-	<css file="__homecss__/slides.css"/>
+	<css file="__mcss__/member.min.css"/>
 </head>
 <body>
 	<include file="Home/Template/default/common/header.html"/>
 	<div id="container">
-		<div class="bf45">
-			<section class="position wp cl">
-				<a href="<!--{$G.siteurl}-->"><i class="i-icon">A</i>  <!--{$G.shortname}--></a><span>></span><a href="<!--{$G.siteurl}-->/<!--{$nav.url}-->.html"><!--{$nav.name}-->视频</a>
-			</section>
-			<header class="wp v-title">
-				<h1 class="z"><!--{$nav.name}-->视频<span class="xs2 mlm">共有<em class="cf34"><!--{$total}--></em>个视频</span><span  class="xs2"><em class="cf34"><!--{$totalviews|default="0"}--></em>次播放</span></h1>
-			</header>
-		</div>
-		<div class="t"></div>
-		<section class="wp cl ov">
-			<ul  class="video-list">
-			<volist name="list" id="vo">
-				<li>
-					<a href="<!--{$G.siteurl}-->/video/<!--{$vo.id}-->.html" class="thumb"><img alt="<!--{$vo.title}-->" src="/<!--{$vo.lipic}-->" width="200" height="112" title="<!--{$vo.title}-->"></a>
-					<h3 class="title"><a href="<!--{$G.siteurl}-->/video/<!--{$vo.id}-->.html" title="<!--{$vo.title}-->"><!--{$vo.title}--></a></h3>
-					<div class="xs2 hm tg">
-						<span><i class="i-icon">z</i><!--{$vo.views}--></span>
-						<span><i class="i-icon">Q</i><!--{$vo.dateline|date="m-d",###}--></span>
+		<section class="wp member-banner"></section>
+		<div class="tf"></div>
+		<section class="wp cl">
+			<include file="Member/Template/default/common/user_block.html"/>
+			<div class="main-member">
+				<div class="header-member"><i class="i-icon z mrm">S</i> 发布新视频</div>
+				<div class="p-col">
+					<form name="post" action="/member/post/post_do" method="post" enctype="multipart/form-data" method="post">
+					<div class="form-item">
+						<label>标题</label>
+						<select name="cid">
+							<volist name="video_cate" id="vo">
+								<option value="<!--{$vo.id}-->"><!--{$vo.name}--></option>
+							</volist>
+						</select> - 
+						<input type="text" name="title" class="w400">
 					</div>
-				</li>	
-			</volist>
-			</ul>
+					<div class="form-item"><label>视频地址</label><input type="text" name="src" class="w400"><span class="fx">优酷土豆下方分享的flash地址，一般为.swf、.flv后缀</span></div>
+					<div class="form-item"><label>视频缩略图</label><input type="file" name="litpic"> <span class="fx">由于不能直接上传上视频，请手动添加视频所缩略图</span></div>
+					<div class="form-item"><label>视频介绍</label> <span class="fx">添加您对视频的简单介绍和描述，可以是图文混合、绘声绘色的描述，效果更佳哦！</span></div>
+					<div class="form-item" style="padding-left:110px;"><textarea name="body" id="Content"></textarea></div>
+					<div class="form-item"><label>标签</label><input type="text" name="keywords" class="w400"> <span class="fx">为了更多的人看您发的视频，请填写关键词，以英文','隔开</span></div>
+					<div class="form-item"><label>&nbsp;</label><input type="submit" value="确认发布" id="submit"></div>
+				</form>
+				<div class="tw"></div>
+			</div>
+			</div>
 		</section>
-		<div class="tw"></div>
-		<section class="wp cl"><div class="page"><!--{$page}--></div></section>
 	</div>
-	<include file="Home/Template/default/common/footer.html"/>
+	<div class="tw"></div>
+	<include file="Member/Template/default/common/footer.html"/>
+	<js file="/Static/ueditor/ueditor.config.js"/>
+    <js file="/Static/ueditor/ueditor.all.min.js"/>
+    <script type="text/javascript">
+    window.UEDITOR_HOME_URL='__ueditor__/';
+    window.onload=function(){
+        window.UEDITOR_CONFIG.initialFrameWidth=700; 
+        window.UEDITOR_CONFIG.initialFrameHeight=240;
+        UE.getEditor('Content',{
+        	toolbars:[['bold','forecolor','fontsize','fontfamily','insertorderedlist','justifyleft','justifycenter','justifyright','ling','unlink','simpleupload','insertimage','emotion','inserttable','mergecells','removeformat']]
+        });
+    }
+    </script>
 </body>
 </html>
