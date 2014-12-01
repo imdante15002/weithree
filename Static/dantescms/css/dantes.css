@@ -1,3 +1,4 @@
+@charset "utf-8";
 .blcok { display: block;}
 .ui{font-family: 'icon'; font-style: normal;}
 .ui:hover {opacity: 0.7}
@@ -134,12 +135,12 @@ body{min-width:1280px;background:url(../images/bg.gif);}
 #aside #menu .user-admin  { overflow: hidden; padding:10px 0; height: auto; border-bottom: 1px solid #383838; font-size:20px;}
 #aside #menu .action ol li a {padding-left:20px; height:28px; line-height: 30px;}
 #main{overflow:hidden;padding:55px 10px 10px 150px;width:auto;height:100%;}
-#main .colbox{min-height:500px;border:1px solid #eee;background-color:#fff;box-shadow:0 2px 5px #eee;border-bottom-color:#ececec;}
+#main .colbox{min-height:500px;border:1px solid #ddd;background-color:#fff;box-shadow:0 2px 5px #eee;}
 .pd0{padding-left:0!important;}
 .index-qmeun li { float: left; }.index-qmeun li strong { font-size:18px;}
 .index-qmeun li a { display: block; padding:15px 10px; background-color: #f7f8f7; color:#444;  border-radius: 5px;}
 .index-qmeun li a:hover { background-color: #00a483; color:#fff;}
-.col-header{overflow:hidden;padding-left:10px;width:auto;height:36px; background-color: #f7f8f7; color:#00a483;border-bottom:1px solid #EAEFEE;font-size:16px;line-height:37px;}
+.col-header{overflow:hidden;padding-left:10px;width:auto;height:36px; background-color: #f7f8f7;background: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#e1e1e1)); color:#00a483;border-bottom:1px solid #c2c2c2;font-size:16px;line-height:37px;}
 .col-header .ui{float: left; margin-right: 5px;}
 .col-header .col-cls { float: right; display: block; width:40px; height:36px; background:url(../images/cls.png) no-repeat 8px 6px;cursor: pointer;}
 .col-header .col-cls:hover { background:url(../images/cls_hover.png) no-repeat 8px 6px;}
