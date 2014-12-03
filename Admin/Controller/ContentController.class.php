@@ -199,22 +199,15 @@ class ContentController extends CommonController{
      */
     public function article(){
         $m=M('article');
-        $catid=I('id');
-        $this->catid=$catid;
-        if($catid==null){
-            $where['catid']=array('gt',0);
-        }else{
-            $where['catid']=array('eq',$catid);
-        }
-        $count= $m->where($where)->count();// 查询满足要求的总记录数
+        $count= $m->count();// 查询满足要求的总记录数
         $Page = new \Think\Page($count,20);// 实例化分页类
         $show = $Page->show();// 分页显示输出
-        $list = D('ContentView')->where($where)->order('tid desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = D('ContentView')->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
         import('Common.Common.Category');
         $merge = new \Category();
-        $class=M('channel')->where('type=2 and status=0')->select();
+        $class=M('channel')->where('type=2')->select();
         $this->channel=$merge::unlimitedForLevel($class,'&nbsp;&nbsp;|--&nbsp;');
         $this->display();
     }
@@ -223,11 +216,11 @@ class ContentController extends CommonController{
      * @return [type] [description]
      */
     public function move(){
-        $tid=I('tid');
-        $catid=I('catid');
+        $id=I('tid');
+        $cid=I('cid');
         $m=M('article');
-        $status=$m->where(array('tid'=>array('in',$tid)))->setField('catid',$catid);
-        if ($m) {
+        $status=$m->where(array('id'=>array('in',$id)))->setField('cid',$cid);
+        if ($status) {
              $this->success('移动成功！');
         }else{
             $this->error('移动失败！');
@@ -240,7 +233,7 @@ class ContentController extends CommonController{
      */
     public function del_all(){
         $tids=I('tid');
-        M('article')->where(array('tid'=>array('in',$tids)))->delete();
+        M('article')->where(array('id'=>array('in',$tids)))->delete();
         $this->success('删除成功');
     }
     /**

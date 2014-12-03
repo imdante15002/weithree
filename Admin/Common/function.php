@@ -24,3 +24,20 @@ function deldir($dir) {
     return false;
   }
 }
+/**
+ * Auth权限认证
+ * @param  [type]  $name     [description]
+ * @param  [type]  $uid      [description]
+ * @param  integer $type     [description]
+ * @param  string  $mode     [description]
+ * @param  string  $relation [description]
+ * @return [type]            [description]
+ */
+function authcheck($name, $uid, $type=1, $mode='url', $relation='or'){
+    if(!in_array($uid,C('ADMINISTRATOR'))){ 
+        $auth=new \Think\Auth();
+        return $auth->check($name, $uid, $type, $mode, $relation)?true:false;
+      }else{
+        return true;
+      }
+  }

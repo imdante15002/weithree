@@ -29,12 +29,12 @@ class ConfigController extends CommonController{
         $this->display();
     }
     public function app_key(){
-        $this->conf=M('config')->find(1);
+        $this->conf=M('extend_config')->find();
         $this->display();
     }
     public function up_appkey(){
         $data=I('post.');
-        if (M('config')->save($data)) {
+        if (M('extend_config')->save($data)) {
             $this->success('保存成功！');
         }else{
             $this->error('后台君也不不知道哪里错了！');
@@ -44,6 +44,15 @@ class ConfigController extends CommonController{
         $this->display();
     }
     public function seo(){
+        $this->channel=M('channel')->field('id,name,keywords,description')->where('status=0')->select();
         $this->display();
+    }
+    public function up_seo_exe(){
+        $data=I('get.');
+        if (M('channel')->save($data)) {
+           echo "保存成功";
+        }else{
+            echo "保存失败";
+        }
     }
 }

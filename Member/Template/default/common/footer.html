@@ -30,7 +30,7 @@
 	<li class="backTop"><a href="javascript:void(0)"><i class="i-icon">a</i></a></li>
 	<li>
 		<if condition="$ukey neq 0">
-			<a href="<!--{$G.siteurl}-->/post"><i class="i-icon">S</i></a>
+			<a href="<!--{$G.siteurl}-->/member/post"><i class="i-icon">S</i></a>
 		<else/>
 			<a href="javascript:void(0)" class="modal" data-modal="login"><i class="i-icon">S</i></a>
 		</if>
@@ -38,16 +38,6 @@
 	<li><a href="javascript:void(0)"><i class="i-icon">f</i></a></li>
 </div>
 <js file="__cmmjs__/jquery-1.11.1.min.js"/>
-<js file="__cmmjs__/img.load.min.js"/>
-<script type="text/javascript">
-  $(function(){
-  	$(".video-list img").lazyload({
-  		placeholder:"__cmmimg__/images/lazy.jpg",
-  		effect:"fadeIn",
-  		threshold : 800
-  	});
-  });
-</script>
 <js file="__homejs__/weithree.min.js"/>
 <js file="__mjs__/L_slide.js"/>
 <script type="text/javascript">

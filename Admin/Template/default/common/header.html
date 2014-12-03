@@ -57,12 +57,11 @@
                 <ol>
                      <li><a href="<!--{:U('Config/index')}-->" <if condition="(CONTROLLER_NAME eq 'Config') and (ACTION_NAME eq index)">class="active"</if>>站点配置<s></s></a></li>
                      <li><a href="<!--{:U('Config/seo')}-->" <if condition="(CONTROLLER_NAME eq 'Config') and (ACTION_NAME eq seo)">class="active"</if>>SEO标题<s></s></a></li>
-                    <li><a href="<!--{:U('Config/upload')}-->" <if condition="ACTION_NAME eq upload">class="active"</if>>上传设置<s></s></a></li>
+                    <li><a href="<!--{:U('Config/upload')}-->" <if condition="ACTION_NAME eq upload">class="active"</if>>性能优化<s></s></a></li>
                     <li><a href="<!--{:U('Config/app_key')}-->" <if condition="ACTION_NAME eq app_key">class="active"</if>>端口设置<s></s></a></li>
-                    <li><a href="<!--{:U('Model/index')}-->" <if condition="CONTROLLER_NAME eq Model">class="active"</if>>模块管理<s></s></a></li>
-                    <li><a href="<!--{:U('Config/console')}-->" <if condition="ACTION_NAME eq console">class="active"</if>>功能配置<s></s></a></li>
-                    <li><a href="<!--{:U('Auth/index')}-->" <if condition="(CONTROLLER_NAME eq 'Auth') and (ACTION_NAME eq index)">class="active"</if>>权限设置<s></s></a></li>
-
+                    <li><a href="<!--{:U('Auth/qmenu')}-->" <if condition="(CONTROLLER_NAME eq Auth) and (ACTION_NAME eq qmenu)">class="active"</if>>快捷菜单<s></s></a></li>
+                    <li><a href="<!--{:U('Auth/index')}-->" <if condition="(CONTROLLER_NAME eq Auth) and (ACTION_NAME eq index)">class="active"</if>>模块管理<s></s></a></li>
+                    <li><a href="<!--{:U('Auth/console')}-->" <if condition="ACTION_NAME eq console">class="active"</if>>功能配置<s></s></a></li>
                 </ol>
                 <li style=" background-image: none;"><a href="<!--{:U('Index/cache')}-->" class="blcok" ><i class="ui">Q</i>清空缓存<s></s></a></li>
             </ul>

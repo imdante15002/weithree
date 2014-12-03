@@ -17,6 +17,19 @@ Class Category {
             }
             return $arr;
         }
+        //auth权限认证无限极分类功能
+        Static Public function unlimitedForAuth ($class, $html = '--', $type = 0, $level = 0) {
+            $arr = array();
+            foreach ($class as $k => $v) {
+                if ($v['type'] == $type) {
+                    $v['level'] = $level + 1;
+                    $v['html']  = str_repeat($html, $level);
+                    $arr[] = $v;
+                    $arr = array_merge($arr, self::unlimitedForAuth($class, $html, $v['id'], $level + 1));
+                }
+            }
+            return $arr;
+        }
         //组合多维数组
         Static Public function unlimitedForLayer ($class, $name = 'child', $pid = 0) {
             $arr = array();

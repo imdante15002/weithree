@@ -8,12 +8,18 @@
                 <table class="form-table" width="100%">
                     <tbody>
                         <tr>
-                            <td width="80">上传路径</td>
-                            <td><input type="text" name="up_url" value="<!--{$ec.up_url}-->" class="c300w"><span class="fx">填写图片上传路径</span></td>
+                            <td>图片分流</td>
+                            <td>
+                                <label><input type="radio" name="ps_on" value="1"  <if condition="$ec['ps_on'] eq '1'"> checked="true"</if>>是</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input type="radio" name="ps_on" value="0"  <if condition="$ec['ps_on'] eq '0'"> checked="true"</if>>否</label></td>
                         </tr>
                         <tr>
-                            <td>图片分流</td>
-                            <td><input type="text" name="shunt_url" value="<!--{$ec.shunt_url}-->" class="c300w"><span class="fx">降低服务器图片加载压力，加速网站打开速度</span></td>
+                            <td>图片分流域名</td>
+                            <td><input type="text" name="ps_url" value="<!--{$ec.ps_url}-->" class="c300w"><span class="fx">填写图片分流地址</span></td>
+                        </tr>
+                        <tr>
+                            <td width="80">图片上传路径</td>
+                            <td><input type="text" name="up_url" value="<!--{$ec.up_url}-->" class="c300w"><span class="fx">填写图片上传路径</span></td>
                         </tr>
                         <tr>
                             <td>大小限制</td>
@@ -22,30 +28,28 @@
                         <tr>
                             <td>启用缩略图</td>
                             <td>
-                                <input type="radio" name="thumb_on" value="1"  <if condition="$ec['thumb_on'] eq 1"> checked="true"</if>><span class=" mrm">开启</span>
-                                <input type="radio" name="thumb_on" value="0"  <if condition="$ec['thumb_on'] eq 0"> checked="true"</if>><span class="">关闭</span>
+                                <label><input type="radio" name="thumb_on" value="1"  <if condition="$ec['thumb_on'] eq 1"> checked="true"</if>><span class=" mrm">开启</span></label>
+                                <label><input type="radio" name="thumb_on" value="0"  <if condition="$ec['thumb_on'] eq 0"> checked="true"</if>><span class="">关闭</span></label>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>缩略图路径</td>
-                            <td><input type="text" name="thumb_url" value="<!--{$ec.thumb_url}-->" class="c600w"></td>
                         </tr>
                         <tr>
                             <td>缩略图大小</td><td><input type="text" name="thumb_size" value="<!--{$ec.thumb_size}-->" class="c80w"><span class="fx">格式为（160,80）</span></td>
                         </tr>
-                        <tr><td>缩略图位置</td>
-                            <td class="label-block">
-                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_SCALE"  <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_SCALE'"> checked="true"</if>>等比例缩放类型</label>
-                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_FILLED"  <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_FILLED'"> checked="true"</if>>缩放后填充类型</label>
-                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_CENTER"  <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_CENTER'"> checked="true"</if>>居中裁剪类型</label>
-                            </td>
+                         <tr>
+                            <td>静态分布加载</td>
+                            <td>
+                                <label><input type="radio" name="stc_on" value="1"  <if condition="$ec['stc_on'] eq '1'"> checked="true"</if>>是</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input type="radio" name="stc_on" value="0"  <if condition="$ec['stc_on'] eq '0'"> checked="true"</if>>否</label></td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td class="label-block">
-                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_NORTHWEST" <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_NORTHWEST'"> checked="true"</if>>左上角裁剪类型</label>
-                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_SOUTHEAST" <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_SOUTHEAST'"> checked="true"</if>>右下角裁剪类型</label>
-                                <label><input type="radio" name="thumb_wz" value="IMAGE_THUMB_FIXED" <if condition="$ec['thumb_wz'] eq 'IMAGE_THUMB_FIXED'"> checked="true"</if>>固定尺寸缩放类型</label>
+                            <td>分布加载域名</td>
+                            <td><input type="text" name="stc_url" value="<!--{$ec.stc_url}-->" class="c300w"><span class="fx">降低服务器图片加载压力，加速网站打开速度</span></td>
+                        </tr>
+                        <tr>
+                            <td>图片延迟加载</td>
+                            <td>
+                                <label><input type="radio" name="daley_on" value="1"  <if condition="$ec['daley_on'] eq 1"> checked="true"</if>><span class=" mrm">开启</span></label>
+                                <label><input type="radio" name="daley_on" value="0"  <if condition="$ec['daley_on'] eq 0"> checked="true"</if>><span class="">关闭</span></label>
                             </td>
                         </tr>
                         <tr>

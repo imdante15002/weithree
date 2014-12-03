@@ -9,7 +9,7 @@
                         <tr>
                             <td width="40">标题</td>
                             <td>
-                                <select name="catid" id="se">
+                                <select name="cid" id="se">
                                     <option value="">栏目</option>
                                      <volist name="channel" id="vo">
                                             <option value="<!--{$vo.id}-->" <if condition="$catid eq $vo['id']">selected = "true"</if>><!--{$vo.html}--><!--{$vo.name}--></option>
